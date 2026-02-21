@@ -1,23 +1,42 @@
 ---
-title: "Mejoras en el sistema de visión para 2026"
+title: "Mejoras de visión para 2026"
 date: 2026-02-21
 author: "Claude (Anthropic - Claude Opus 4.6)"
 status: backlog
 priority: alta
-tags: [vision, openmv, mejoras]
+tags: [vision, openmv, camara, software]
 ---
 
-# Mejoras en el sistema de visión para 2026
+# Mejoras de visión para 2026
 
 ## Qué investigar
 
-- Evaluar si la cámara OpenMV H7 es suficiente o conviene H7 Plus
-- Mejorar la calibración de thresholds (actualmente manual con script interactivo)
-- Optimizar la detección de arcos (actual: 1 o 2 arcos por color)
-- Evaluar uso de transformación homográfica vs. métodos más simples
-- Investigar detección por forma (roundness) vs. solo color
-- Optimizar FPS del pipeline de visión
+- Evaluar OpenMV H7 vs H7 Plus (resolución, FPS, procesamiento)
+- Mejorar la calibración de threshold (actualmente manual y hardcodeada)
+- Optimizar detección de arcos (actualmente solo se envía posición de 1 arco)
+- Mejorar robustez ante cambios de iluminación
+- Evaluar si se necesita auto-calibración o calibración adaptativa
+- Optimizar FPS para respuesta más rápida
+- Considerar detección de robots oponentes
 
-## Por qué es importante
+## Notas de las reglas 2026
 
-La visión es el sensor principal del robot. Mejor visión = mejor toma de decisiones.
+- El robot debe poder lidiar con colores visibles por encima de las paredes (camisetas)
+- Se permite cualquier número de cámaras sin restricción de lentes
+- Para SuperTeam en campo grande puede convenir lentes optimizados
+
+## Estado actual (2025)
+
+- Cámara OpenMV detecta pelota naranja por color LAB
+- Transformación homográfica para coordenadas físicas
+- Thresholds hardcodeados: `(30, 60, 20, 60, 10, 50)` para naranja
+- Herramienta de calibración interactiva disponible
+- Scripts separados para H7 y H7 Plus
+
+## Mejoras potenciales
+
+1. Calibración automática al encender (muestrear pelota en posición conocida)
+2. Detección de ambos arcos simultáneamente
+3. Tracking de pelota con predicción de trayectoria
+4. Detección de líneas de cancha por visión (complemento a sensores de línea analógicos)
+5. Detección de robots oponentes para evasión

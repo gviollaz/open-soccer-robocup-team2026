@@ -6,30 +6,79 @@ Documentación de reglas vigentes para la temporada 2026.
 
 - **[Reglas Soccer 2026 DRAFT](https://robocup-junior.github.io/soccer-rules/2026-soccer-draft-rules/rules.html)** ← USAR ESTAS
 - [Reglas Soccer estables (master)](https://robocup-junior.github.io/soccer-rules/master/rules.html)
-- [Reglas Soccer PDF](https://robocup-junior.github.io/soccer-rules/master/rules.pdf)
-- [Reglas generales RoboCupJunior](https://junior.robocup.org/robocupjunior-general-rules/)
+- [Scoring (puntaje)](https://robocup-junior.github.io/soccer-rules/master/scoring.html)
 - [Especificaciones del campo](https://robocup-junior.github.io/soccer-rules/master/field_specification.html)
+- [Especificaciones de la pelota](https://robocup-junior.github.io/soccer-rules/master/ball_specification.html)
+- [Reglas SuperTeam](https://robocup-junior.github.io/soccer-rules/master/superteam_rules.html)
+- [Reglas generales RoboCupJunior](https://junior.robocup.org/robocupjunior-general-rules/)
 
-## Cambios clave en reglas 2026
+## NOTA: Nombre de la liga
 
-### Pelota nueva
-- **La pelota IR cambió de 74mm a 42mm de diámetro** (mismo tamaño que la pelota de golf de la Vision League)
-- Es open source: https://github.com/robocup-junior/ir-golf-ball
-- Las Entry Leagues siguen usando la pelota grande
+A partir de 2026, Soccer Open se llama **Soccer Vision** y Soccer Lightweight se llama **Soccer Infrared**. Nuestro equipo compite en **Soccer Vision**.
 
-### Documentación obligatoria
-- **BOM (Bill of Materials)** obligatorio: nombre del componente, proveedor, estado (nuevo/reusado), kit o custom
-- La documentación se comparte en GitHub repos oficiales de RoboCupJunior
-- Cada miembro debe tener un **rol técnico definido** (mecánica, electrónica, software) y poder explicarlo
+## Restricciones físicas del robot (Soccer Vision)
 
-### Uso de código externo
-- Se permite usar código externo pero **hay que dar crédito** a los creadores originales
-- Respetar licencias
-- Priorizar el aprendizaje; no usar soluciones completas de otros
+| Parámetro | Límite | Recomendación |
+|----------|--------|---------------|
+| Diámetro | **18.0 cm** (cilindro) | ≤17.7 cm para inspecciones suaves |
+| Altura | **18.0 cm** | ≤17.7 cm (sin contar handle ni top marker) |
+| Peso | **Sin límite** | Minimizar para agilidad |
+| Zona captura pelota | **1.5 cm** | ⚠️ Reducido de 3.0cm. Revisar dribbler |
+| Voltaje máximo | 48V DC / 25V AC | Puntos de medición accesibles |
+| Comunicación | 2.4 GHz, ≤100 mW EIRP | No garantizado |
 
-### Código de conducta
-- Todos los participantes deben cumplir el RoboCup Federation Code of Conduct
-- El soporte externo (mentores, comunidad, IA) es válido siempre que no haga el trabajo de competir por el equipo
+## Pelota (Soccer Vision)
+
+- **Pelota de golf naranja pasiva** (42mm diámetro)
+- Sin cambio respecto a 2025 para nuestra liga
+- El cambio de 74mm→42mm es solo para Soccer Infrared
+
+## Communication Module — OBLIGATORIO
+
+- Provisto por los organizadores en la competencia internacional
+- Interfaz: **1 pin GPIO de 2.54mm** (start/stop)
+- Alimentación: directo a batería (5.3V-25V) sin switch, 500mA mínimo
+- Siempre encendido (incluso con robot fuera del campo)
+- Debe estar a ≥1cm del borde exterior
+- No cuenta para peso ni altura máxima
+- Más info: https://github.com/robocup-junior/soccer-communication-module
+
+## Handle (asa) — OBLIGATORIO
+
+- Debe permitir levantar el robot
+- **5 cm de clearance** entre parte más alta del robot y el asa
+- Puede exceder el límite de altura
+- Su peso cuenta en el total
+
+## Top Marker — OBLIGATORIO
+
+- Círculo plástico blanco, **≥4 cm de diámetro**
+- Montado horizontal en la parte superior
+- El árbitro escribe números con marcador
+- Puede exceder el límite de tamaño
+- Sin top marker = no puede jugar
+
+## Colores prohibidos
+
+- No usar **naranja, amarillo o azul** visibles en el robot
+- Si hay partes de esos colores, ocultar o pintar/tapar con color neutro
+- No emitir luz que interfiera con visión del oponente
+
+## Test de potencia del kicker
+
+1. Robot dentro del arco, tocando pared de fondo
+2. Kick hacia arco contrario
+3. **Pasa** si la pelota NO vuelve hasta la pared de fondo del arco de origen
+
+## Documentación obligatoria para RoboCup 2026
+
+| Entregable | Detalle | Deadline estimado |
+|------------|---------|-------------------|
+| BOM | Componentes, proveedor, nuevo/reusado, kit/custom, precio | Antes de competencia |
+| Poster A1 | 60×84cm, resumen del diseño | Llevar impreso |
+| Video técnico | Demo funcional + proceso de diseño | Antes de competencia |
+| Portfolio digital | Hardware + software completo | Antes de competencia |
+| Código compartido | En GitHub repos oficiales de RoboCupJunior | Antes de competencia |
 
 ## Reglas nacionales (Argentina)
 
@@ -40,7 +89,3 @@ Documentación de reglas vigentes para la temporada 2026.
 El equipo 2025 tradujo las reglas 2025 al castellano. Ver el PDF en el [repo 2025](https://github.com/IITA-Proyectos/RoboCupJunior-Soccer-Open-League-2025/blob/main/SoccerRules-Robocup-2025%20%20Castellano.pdf).
 
 **TODO**: Traducir los cambios de las reglas 2026 al castellano.
-
-## Restricciones físicas del robot
-
-_Extraer de las reglas 2026 y documentar acá: peso máximo, diámetro máximo, altura máxima, voltaje máximo, etc._
